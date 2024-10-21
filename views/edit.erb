@@ -1,0 +1,12 @@
+<h2>Aufgabe bearbeiten</h2>
+<form action="/update/<%= @index %>" method="post">
+  <input type="text" name="task" value="<%= @task['task'] %>">
+  <select name="priority">
+    <option value="low" <%= @task['priority'] == 'low' ? 'selected' : '' %>>Niedrig</option>
+    <option value="medium" <%= @task['priority'] == 'medium' ? 'selected' : '' %>>Mittel</option>
+    <option value="high" <%= @task['priority'] == 'high' ? 'selected' : '' %>>Hoch</option>
+  </select>
+  <input type="text" name="category" value="<%= @task['category'] %>" placeholder="Kategorie">
+  <button type="submit">Aktualisieren</button>
+</form>
+<a href="/">Zurück zur Liste</a>
