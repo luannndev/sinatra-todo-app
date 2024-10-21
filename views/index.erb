@@ -1,0 +1,16 @@
+<form action="/add" method="post">
+  <input type="text" name="task" placeholder="Neue Aufgabe">
+  <button type="submit">Hinzufügen</button>
+</form>
+
+<ul>
+  <% TODO_ITEMS.each_with_index do |item, index| %>
+    <li>
+      <%= item %>
+      <form action="/delete" method="post" style="display:inline;">
+        <input type="hidden" name="index" value="<%= index %>">
+        <button type="submit">Löschen</button>
+      </form>
+    </li>
+  <% end %>
+</ul>
