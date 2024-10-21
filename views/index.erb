@@ -1,12 +1,21 @@
 <form action="/add" method="post">
   <input type="text" name="task" placeholder="Neue Aufgabe">
+  <select name="priority">
+    <option value="low">Niedrig</option>
+    <option value="medium">Mittel</option>
+    <option value="high">Hoch</option>
+  </select>
   <button type="submit">Hinzufügen</button>
 </form>
 
 <ul>
   <% TODO_ITEMS.each_with_index do |item, index| %>
-    <li>
-      <%= item %>
+    <li class="<%= item['completed'] ? 'completed' : '' %>">
+      <%= item['task'] %> - <%= item['priority'] %>
+      <form action="/complete" method="post" style="display:inline;">
+        <input type="hidden" name="index" value="<%= index %>">
+        <button type="submit" <% if item['completed'] %>disabled<% end %>>Erledigt</button>
+      </form>
       <form action="/delete" method="post" style="display:inline;">
         <input type="hidden" name="index" value="<%= index %>">
         <button type="submit">Löschen</button>

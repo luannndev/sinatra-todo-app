@@ -4,6 +4,7 @@ GEM
     base64 (0.2.0)
     daemons (1.4.1)
     eventmachine (1.2.7)
+    json (2.7.2)
     multi_json (1.15.0)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
@@ -35,6 +36,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  json
   sinatra
   sinatra-reloader
   thin
